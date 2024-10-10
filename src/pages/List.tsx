@@ -51,11 +51,14 @@ const List: React.FC = () => {
     setPresentingElement(page.current);
   }, []);
 
-  useIonViewWillEnter(async () => {
-    const users = await getUsers();
-    console.log('🚀 ~ file: List.tsx:10 ~ useIonViewWillEnter ~ users:', users);
-    setUsers(users);
-    setLoading(false);
+  useIonViewWillEnter(() => {
+    const fetchUsers = async () => {
+      const users = await getUsers();
+      console.log('🚀 ~ file: List.tsx:10 ~ useIonViewWillEnter ~ users:', users);
+      setUsers(users);
+      setLoading(false);
+    };
+    fetchUsers();
   });
 
   const getUsers = async () => {
