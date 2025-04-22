@@ -9,7 +9,11 @@
     "preview": "vite preview",
     "test.e2e": "cypress run",
     "test.unit": "vitest",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ionic:build": "npm run build",
+    "ionic:serve": "npm run dev -- --open",
+    "electron:mac": "electron-packager ./electron myapp --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds",
+    "electron:win": "electron-packager ./electron myapp --overwrite --asar --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName='Electron App'"
   },
   "dependencies": {
     "@capacitor-community/electron": "^5.0.1",
